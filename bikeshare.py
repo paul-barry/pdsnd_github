@@ -44,9 +44,9 @@ def get_filters():
             if (month.lower() in validMonths):
                 break
             else:
-                print("Invalid Month of <",month,">")
+                print("Invalid Month of <{}>".format(month))
         except:
-            print("Invalid Month of <",month,">")
+            print("Invalid Month of <{}>".format(month))
 
     # get user input for day of week (all, monday, tuesday, ... sunday)
     day = ""
@@ -77,21 +77,21 @@ def load_data(city, month, day):
     """
         # load data file into a dataframe
     df = pd.read_csv(CITY_DATA[city])
-    
+
         # convert the Start Time column to datetime
     df['Start Time'] = pd.to_datetime(df['Start Time'])
-    
-   
+
+
     # extract month and day of week from Start Time to create new columns
     df['month'] = df['Start Time'].dt.month
     df['day_of_week'] = df['Start Time'].dt.weekday_name
- 
+
        # filter by month if applicable
     if month != 'all':
         # use the index of the months list to get the corresponding int
         months = ['january', 'february', 'march', 'april', 'may', 'june']
         month = months.index(month)+1
-    
+
         # filter by month to create the new dataframe
         df = df[df['month'] == month]
 
@@ -110,7 +110,7 @@ def time_stats(df):
         (DataFrame) df - Pandas DataFrame containing city data filtered by month and day
     Returns
     -------
-    None.    
+    None.
     """
 
     print('\nCalculating The Most Frequent Times of Travel...\n')
@@ -138,7 +138,7 @@ def station_stats(df):
         (DataFrame) df - Pandas DataFrame containing city data filtered by month and day
     Returns
     -------
-    None.    
+    None.
     """
 
     print('\nCalculating The Most Popular Stations and Trip...\n')
@@ -166,7 +166,7 @@ def trip_duration_stats(df):
         (DataFrame) df - Pandas DataFrame containing city data filtered by month and day
     Returns
     -------
-    None.    
+    None.
     """
 
     print('\nCalculating Trip Duration...\n')
@@ -184,13 +184,13 @@ def trip_duration_stats(df):
 
 def user_stats(df):
     """Displays statistics on bikeshare users.
- 
+
     Args:
         (DataFrame) df - Pandas DataFrame containing city data filtered by month and day
     Returns
     -------
-    None.   
-    
+    None.
+
     """
 
     print('\nCalculating User Stats...\n')
@@ -218,8 +218,8 @@ def user_stats(df):
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
-    
-    
+
+
 def chunkrawdata(df):
     """Display raw data if requested by the user
 
@@ -227,11 +227,11 @@ def chunkrawdata(df):
         (DataFrame) df - Pandas DataFrame containing city data filtered by month and day
     Returns
     -------
-    None.   
+    None.
     """
        #https://towardsdatascience.com/how-to-show-all-columns-rows-of-a-pandas-dataframe-c49d4507fcf
     pd.set_option('display.max_columns', None)
-    
+
     # track place in raw data
     currentRow = 0
     while True:
@@ -241,9 +241,9 @@ def chunkrawdata(df):
         else:
             print(df[currentRow:currentRow+5])
             currentRow += 5
-            
-       
-            
+
+
+
 
 
 def main():
