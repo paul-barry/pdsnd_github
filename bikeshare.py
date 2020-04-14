@@ -44,9 +44,9 @@ def get_filters():
             if (month.lower() in validMonths):
                 break
             else:
-                print("Invalid Month of <",month,">")
+                print("Invalid Month of <{}>".format(month))
         except:
-            print("Invalid Month of <",month,">")
+            print("Invalid Month of <{}>".format(month))
 
     # get user input for day of week (all, monday, tuesday, ... sunday)
     day = ""
@@ -104,7 +104,8 @@ def load_data(city, month, day):
 
 
 def time_stats(df):
-    """Displays statistics on the most frequent times of travel.
+    """
+    Displays statistics on the most frequent times of travel.
 
     Args:
         (DataFrame) df - Pandas DataFrame containing city data filtered by month and day
@@ -132,7 +133,8 @@ def time_stats(df):
 
 
 def station_stats(df):
-    """Displays statistics on the most popular stations and trip.
+    """
+    Displays statistics on the most popular stations and trip.
 
     Args:
         (DataFrame) df - Pandas DataFrame containing city data filtered by month and day
@@ -160,7 +162,8 @@ def station_stats(df):
 
 
 def trip_duration_stats(df):
-    """Displays statistics on the total and average trip duration.
+    """
+    Displays statistics on the total and average trip duration.
 
     Args:
         (DataFrame) df - Pandas DataFrame containing city data filtered by month and day
@@ -183,7 +186,8 @@ def trip_duration_stats(df):
 
 
 def user_stats(df):
-    """Displays statistics on bikeshare users.
+    """
+    Displays statistics on bikeshare users.
 
     Args:
         (DataFrame) df - Pandas DataFrame containing city data filtered by month and day
@@ -221,7 +225,8 @@ def user_stats(df):
 
 
 def chunkrawdata(df):
-    """Display raw data if requested by the user
+    """
+    Display raw data if requested by the user
 
     Args:
         (DataFrame) df - Pandas DataFrame containing city data filtered by month and day
